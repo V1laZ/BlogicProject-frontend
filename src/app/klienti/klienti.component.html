@@ -1,0 +1,35 @@
+<div style="max-width: 400px;">
+    <table class="table table-responsive">
+        <tbody>
+        <tr>
+            <th scope="row">ID</th>
+            <td>{{ client_data['id'] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Jmeno</th>
+            <td>{{ client_data['jmeno'] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Prijmeni</th>
+            <td>{{ client_data['prijmeni'] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td>{{ client_data['email'] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Tel. cislo</th>
+            <td>{{ client_data['tel_cislo'] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Rodne cislo</th>
+            <td>{{ client_data['rod_cislo'] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Vek</th>
+            <td>{{ client_data['vek'] }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a class="nav-link" routerLink="/smlouvy-table" routerLinkActive="active" ariaCurrentWhenActive="page">Zpět</a>

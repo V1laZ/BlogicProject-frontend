@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">BlogicProject</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" routerLink="/smlouvy-table" routerLinkActive="active" ariaCurrentWhenActive="page">Smlouvy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/poradci-table" routerLinkActive="active" ariaCurrentWhenActive="page">Poradci</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/klienti-table" routerLinkActive="active" ariaCurrentWhenActive="page">Klienti</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+
+<router-outlet></router-outlet>
+</body>
+</html>

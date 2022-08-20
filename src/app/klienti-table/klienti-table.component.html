@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Jmeno</th>
+        <th scope="col">Prijmeni</th>
+        <th scope="col">Email</th>
+        <th scope="col">Tel. cislo</th>
+        <th scope="col">Rodne cislo</th>
+        <th scope="col">Vek</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let klient of klients">
+        <th scope="row">{{ klient.id }}</th>
+        <td> {{ klient.jmeno }}</td>
+        <td> {{ klient.prijmeni }}</td>
+        <td> {{ klient.email }}</td>
+        <td> {{ klient.tel_cislo }}</td>
+        <td> {{ klient.rod_cislo }}</td>
+        <td> {{ klient.vek }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
