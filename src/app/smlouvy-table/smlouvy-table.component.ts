@@ -19,7 +19,7 @@ export class SmlouvyTableComponent implements OnInit {
     this.api.getAllSmlouvy().subscribe(
       { 
         next: (data) => this.smlouvy = data,
-        error: (error) => console.log(error)
+        error: (error) => (error.error['code'] == "token_not_valid") ? localStorage.removeItem('token') : ''
       }
     )
   }

@@ -19,7 +19,7 @@ export class KlientiTableComponent implements OnInit {
     this.api.getAllClients().subscribe(
       { 
         next: (data) => this.klients = data,
-        error: (error) => console.log(error)
+        error: (error) => (error.error['code'] == "token_not_valid") ? localStorage.removeItem('token') : ''
       }
     )
   }

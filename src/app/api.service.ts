@@ -8,35 +8,57 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   baseurl = "http://127.0.0.1:8000/";
-  httpHeaders = new HttpHeaders({
-    'Content-type': 'application/json'
-  })
 
   constructor(private http: HttpClient) { }
 
   getAllClients(): Observable<any>{
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+
     return this.http.get(this.baseurl + '/klient/', 
-    {headers: this.httpHeaders});
+    {headers: httpHeaders});
   }
 
   getAllPoradces(): Observable<any>{
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+
     return this.http.get(this.baseurl + '/poradce/',
-    {headers: this.httpHeaders});
+    {headers: httpHeaders});
   }
 
   getAllSmlouvy(): Observable<any>{
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+
     return this.http.get(this.baseurl + '/smlouva/',
-    {headers: this.httpHeaders});
+    {headers: httpHeaders});
   }
 
   getClient(id: number): Observable<any>{
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+
     return this.http.get(this.baseurl + '/klient/' + id, 
-    {headers: this.httpHeaders});
+    {headers: httpHeaders});
   }
 
   getPoradce(id: number): Observable<any>{
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+    
     return this.http.get(this.baseurl + '/poradce/' + id, 
-    {headers: this.httpHeaders});
+    {headers: httpHeaders});
   }
 
 

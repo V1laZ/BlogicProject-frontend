@@ -19,7 +19,7 @@ export class PoradciTableComponent implements OnInit {
     this.api.getAllPoradces().subscribe(
       { 
         next: (data) => this.poradci = data,
-        error: (error) => console.log(error)
+        error: (error) => (error.error['code'] == "token_not_valid") ? localStorage.removeItem('token') : ''
       }
     )
   }
