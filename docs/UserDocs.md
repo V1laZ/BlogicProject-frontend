@@ -13,7 +13,7 @@
 
 ![](https://imgur.com/z6oEAdg.png)
 
-Here you can see all the details of **Smlouvy**. There's also a **button** for exporting this table into **.csv** file. If you click on **Klient's ID** or **Spravce's ID** it will show you the details of that corresponding **Klient/Spravce** as you can see on the image below.
+Here you can see all the details of **Smlouvy**. **Stáhnout csv** button exports this table into .csv file. If you click on **Klient's ID** or **Spravce's ID** it will show you the details of that corresponding **Klient/Spravce** as you can see on the image below.
 
 ![](https://imgur.com/sZJXBkZ.png)
 
@@ -22,14 +22,14 @@ Here you can see all the details of **Smlouvy**. There's also a **button** for e
 
 ![](https://imgur.com/H3wOkAg.png)
 
-Here you can see all the details of **Poradci**. There's also a **button** for exporting this table into **.csv** file.
+Here you can see all the details of **Poradci**. **Stáhnout csv** button exports this table into .csv file.
 
 ## Klienti page
 **You need to be logged in to view this page.**
 
 ![](https://imgur.com/qzKSptC.png)
 
-Here you can see all the details of **Klienti**. There's also a **button** for exporting this table into **.csv** file.
+Here you can see all the details of **Klienti**. **Stáhnout csv** button exports this table into .csv file.
 
 ## Login page
 
