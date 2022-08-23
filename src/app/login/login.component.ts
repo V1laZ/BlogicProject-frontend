@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   password: FormControl;
   isUsername = true;
   isPassword = true;
-  isValid = true;
   errorMsg = "";
 
   constructor(private authService: AuthService, private router: Router) { 
@@ -32,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   storeDataAndRedirect(data: Object) {
+    this.authService.isLogin = true;
     localStorage.setItem('token', Object(data)['access']);
     this.router.navigate(['/']);
   }

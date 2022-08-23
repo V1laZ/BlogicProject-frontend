@@ -5,6 +5,7 @@ import { HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
+  isLogin = false;
 
   private apiRoot = 'http://127.0.0.1:8000/api/'
 

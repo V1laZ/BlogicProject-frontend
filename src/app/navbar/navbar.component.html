@@ -13,18 +13,18 @@
         <a class="nav-link active" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">BlogicProject</a>
       </li>
      <li class="nav-item">
-        <a class="nav-link" routerLink="/smlouvy-table" routerLinkActive="active" ariaCurrentWhenActive="page">Smlouvy</a>
+        <a class="nav-link" routerLink="/smlouvy-table" routerLinkActive="active" ariaCurrentWhenActive="page" [class.disabled]="!authService.isLogin">Smlouvy</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/poradci-table" routerLinkActive="active" ariaCurrentWhenActive="page">Poradci</a>
+        <a class="nav-link" routerLink="/poradci-table" routerLinkActive="active" ariaCurrentWhenActive="page" [class.disabled]="!authService.isLogin">Poradci</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/klienti-table" routerLinkActive="active" ariaCurrentWhenActive="page">Klienti</a>
+        <a class="nav-link" routerLink="/klienti-table" routerLinkActive="active" ariaCurrentWhenActive="page" [class.disabled]="!authService.isLogin">Klienti</a>
       </li>
     </ul>
     <div class="row">
-      <a class="nav-link col" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
-      <a class="nav-link col" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()">Logout</a>
+      <a class="nav-link col" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!authService.isLogin" >Login</a>
+      <a class="nav-link col" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()" *ngIf="authService.isLogin">Logout</a>
     </div>
   </div>
 </nav>
