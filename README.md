@@ -1,27 +1,65 @@
-# BlogicProject
+# BlogicProject-frontend
+Frontend for **BlogicProject** done with **Angular** framework.  
+Backend can be found [here](https://github.com/V1laZ/BlogicProject-backend)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+## Table of contents
+- [BlogicProject-frontend](#blogicproject-frontend)
+  - [Table of contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [Development server](#development-server)
+- [Usage](#usage)
+  - [Main page](#main-page)
+  - [Smlouvy page](#smlouvy-page)
+  - [Poradci page](#poradci-page)
+  - [Klienti page](#klienti-page)
+  - [Login page](#login-page)
+
+## Prerequisites
+- [Node.js](https://nodejs.org/en/)
+- [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Usage
+## Main page
+![](https://i.imgur.com/c41m9uk.png)
+1. **Main page** of the application you are currently on 
+2. This will show you the table with **Smlouvy**
+3. This will show you the table with **Poradci**
+4. This will show you the table with **Klienti**
+5. **Login** form where you can login with your credentials
+6. **Logout** button. You will lose access to all tables
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Smlouvy page
+**You need to be logged in to view this page.**
 
-## Build
+![](https://imgur.com/z6oEAdg.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Here you can see all the details of **Smlouvy**. **Stáhnout csv** button exports this table into .csv file. If you click on **Klient's ID** or **Spravce's ID** it will show you the details of that corresponding **Klient/Spravce** as you can see on the image below.
 
-## Running unit tests
+![](https://imgur.com/sZJXBkZ.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Poradci page
+**You need to be logged in to view this page.**
 
-## Running end-to-end tests
+![](https://imgur.com/H3wOkAg.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Here you can see all the details of **Poradci**. **Stáhnout csv** button exports this table into .csv file.
 
-## Further help
+## Klienti page
+**You need to be logged in to view this page.**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![](https://imgur.com/qzKSptC.png)
+
+Here you can see all the details of **Klienti**. **Stáhnout csv** button exports this table into .csv file.
+
+## Login page
+
+![](https://imgur.com/ybLuFm3.png)
+
+You can login from here by writing your **Username** and **Password** into the form and clicking the **Login** button. If you typed something wrong it will show you an error above the Login button.  
+Development admin credentils are:
+- **Username**: vilaz
+- **Password**: 316Tnl40&r3r
