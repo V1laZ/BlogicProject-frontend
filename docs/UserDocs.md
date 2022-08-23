@@ -35,4 +35,7 @@ Here you can see all the details of **Klienti**. **Stáhnout csv** button export
 
 ![](https://imgur.com/ybLuFm3.png)
 
-You can login from here by writing your **Username** and **Password** into the form and clicking the **Login** button. If you typed something wrong it will show you an error above the Login button.
+You can login from here by writing your **Username** and **Password** into the form and clicking the **Login** button. If you typed something wrong it will show you an error above the Login button.  
+Development admin credentils are:
+- **Username**: vilaz
+- **Password**: 316Tnl40&r3r
