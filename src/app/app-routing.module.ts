@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { KlientiTableComponent } from './klienti-table/klienti-table.component';
-import { KlientiComponent } from './klienti/klienti.component';
+import { ClientsTableComponent } from './clients-table/clients-table.component';
+import { ClientsComponent } from './clients/clients.component';
 import { LoginComponent } from './login/login.component';
-import { PoradciTableComponent } from './poradci-table/poradci-table.component';
-import { PoradciComponent } from './poradci/poradci.component';
-import { SmlouvyTableComponent } from './smlouvy-table/smlouvy-table.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ContractsTableComponent } from './contracts-table/contracts-table.component';
+import { AdvisorsTableComponent } from './advisors-table/advisors-table.component';
+import { AdvisorsComponent } from './advisors/advisors.component';
 
 const routes: Routes = [
-  { path: 'klienti-table', component: KlientiTableComponent},
+  { path: 'clients-table', component: ClientsTableComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'smlouvy-table', component: SmlouvyTableComponent},
-  { path: 'poradci-table', component: PoradciTableComponent},
-  { path: 'klienti/:id', component: KlientiComponent},
-  { path: 'poradci/:id', component: PoradciComponent},
+  { path: 'contracts-table', component: ContractsTableComponent},
+  { path: 'advisors-table', component: AdvisorsTableComponent},
+  { path: 'clients/:id', component: ClientsComponent},
+  { path: 'advisors/:id', component: AdvisorsComponent},
   { path: '', component: WelcomeComponent}
 ];
 

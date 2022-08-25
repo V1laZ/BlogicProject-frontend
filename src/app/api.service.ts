@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  baseurl = "http://127.0.0.1:8000/";
+  baseurl = "http://127.0.0.1:8000/api";
 
   constructor(private http: HttpClient) { }
 
@@ -17,27 +17,27 @@ export class ApiService {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
 
-    return this.http.get(this.baseurl + '/klient/', 
+    return this.http.get(this.baseurl + '/clients/', 
     {headers: httpHeaders});
   }
 
-  getAllPoradces(): Observable<any>{
+  getAllAdvisors(): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
 
-    return this.http.get(this.baseurl + '/poradce/',
+    return this.http.get(this.baseurl + '/advisors/',
     {headers: httpHeaders});
   }
 
-  getAllSmlouvy(): Observable<any>{
+  getAllContracts(): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
 
-    return this.http.get(this.baseurl + '/smlouva/',
+    return this.http.get(this.baseurl + '/contracts/',
     {headers: httpHeaders});
   }
 
@@ -47,20 +47,18 @@ export class ApiService {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
 
-    return this.http.get(this.baseurl + '/klient/' + id, 
+    return this.http.get(this.baseurl + '/clients/' + id, 
     {headers: httpHeaders});
   }
 
-  getPoradce(id: number): Observable<any>{
+  getAdvisor(id: number): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
     
-    return this.http.get(this.baseurl + '/poradce/' + id, 
+    return this.http.get(this.baseurl + '/advisors/' + id, 
     {headers: httpHeaders});
   }
-
-
 
 }

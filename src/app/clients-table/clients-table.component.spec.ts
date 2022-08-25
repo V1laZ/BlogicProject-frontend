@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PoradciTableComponent } from './poradci-table.component';
+import { ClientsTableComponent } from './clients-table.component';
 
-describe('PoradciTableComponent', () => {
-  let component: PoradciTableComponent;
-  let fixture: ComponentFixture<PoradciTableComponent>;
+describe('ClientsTableComponent', () => {
+  let component: ClientsTableComponent;
+  let fixture: ComponentFixture<ClientsTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PoradciTableComponent ]
+      declarations: [ ClientsTableComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PoradciTableComponent);
+    fixture = TestBed.createComponent(ClientsTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,26 @@
+<button type="button" class="btn btn-primary btn-sm ms-1" (click)="exportCsv()">Download csv</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Reg. number</th>
+        <th scope="col">Institution</th>
+        <th scope="col">Client</th>
+        <th scope="col">Manager</th>
+        <th scope="col">Close</th>
+        <th scope="col">Valid</th>
+        <th scope="col">End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contract of contracts">
+        <td> {{ contract.reg_num}}</td>
+        <td> {{ contract.institution }}</td>
+        <td> <a class="nav-link" style="padding: 0;" [routerLink]="['/clients', contract.client]" routerLinkActive="active" ariaCurrentWhenActive="page">{{ contract.client }}</a></td>
+        <td> <a class="nav-link" style="padding: 0;" [routerLink]="['/advisors', contract.manager]" routerLinkActive="active" ariaCurrentWhenActive="page">{{ contract.manager }}</a></td>
+        <td> {{ contract.date_close }}</td>
+        <td> {{ contract.date_valid }}</td>
+        <td> {{ contract.date_end }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

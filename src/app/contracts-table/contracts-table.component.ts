@@ -2,30 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-poradci-table',
-  templateUrl: './poradci-table.component.html',
-  styleUrls: ['./poradci-table.component.css']
+  selector: 'app-contracts-table',
+  templateUrl: './contracts-table.component.html',
+  styleUrls: ['./contracts-table.component.css']
 })
-export class PoradciTableComponent implements OnInit {
-  poradci = [{id: 0, jmeno: '', prijmeni: '', email: '', tel_cislo: 0, rod_cislo: '', vek: 0}];
+export class ContractsTableComponent implements OnInit {
+  contracts = [{reg_num: '', institution: '', client: 0, manager: 0, date_close: '', date_valid: '', date_end: ''}];
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.getAllPoradces();
+    this.getAllContracts();
   }
 
-  getAllPoradces = () => {
-    this.api.getAllPoradces().subscribe(
+  getAllContracts = () => {
+    this.api.getAllContracts().subscribe(
       { 
-        next: (data) => this.poradci = data,
+        next: (data) => this.contracts = data,
         error: (error) => (error.error['code'] == "token_not_valid") ? localStorage.removeItem('token') : ''
       }
     )
   }
 
   exportCsv() {
-    this.downloadFile(this.poradci);
+    this.downloadFile(this.contracts);
   }
 
   strRep(data: any) {
@@ -44,14 +44,14 @@ export class PoradciTableComponent implements OnInit {
     }
   }
 
-  ConvertToCSV(objArray: string | { id: number; jmeno: string; prijmeni: string; email: string; tel_cislo: number; rod_cislo: string; vek: number; }[], headerList: string[]) {
+  ConvertToCSV(objArray: string | { reg_num: string; institution: string; client: number; manager: number; date_close: string; date_valid: string; date_end: string; }[], headerList: string[]) {
     console.log(objArray);
     console.log(headerList);
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
     let row = 'S.No,';
 
-    let newHeaders = ["id", "jmeno", "prijmeni", "email", "tel_cislo", "rod_cislo", "vek"];
+    let newHeaders = ["reg_num", "institution", "client", "manager", "date_close", "date_valid", "date_end"];
 
     for (let index in newHeaders) {
       row += newHeaders[index] + ',';
@@ -70,8 +70,8 @@ export class PoradciTableComponent implements OnInit {
     return str;
   }
 
-  downloadFile(data: { id: number; jmeno: string; prijmeni: string; email: string; tel_cislo: number; rod_cislo: string; vek: number; }[], filename = 'data') {
-    let arrHeader = ["id", "jmeno", "prijmeni", "email", "tel_cislo", "rod_cislo", "vek"];
+  downloadFile(data: { reg_num: string; institution: string; client: number; manager: number; date_close: string; date_valid: string; date_end: string; }[], filename = 'data') {
+    let arrHeader = ["reg_num", "institution", "client", "manager", "date_close", "date_valid", "date_end"];
     let csvData = this.ConvertToCSV(data, arrHeader);
     console.log(csvData)
     let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
@@ -82,7 +82,7 @@ export class PoradciTableComponent implements OnInit {
       dwldLink.setAttribute("target", "_blank");
     }
     dwldLink.setAttribute("href", url);
-    dwldLink.setAttribute("download", "poradci.csv");
+    dwldLink.setAttribute("download", "contracts.csv");
     dwldLink.style.visibility = "hidden";
     document.body.appendChild(dwldLink);
     dwldLink.click();

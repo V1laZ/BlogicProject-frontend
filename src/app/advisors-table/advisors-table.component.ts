@@ -2,30 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-klienti-table',
-  templateUrl: './klienti-table.component.html',
-  styleUrls: ['./klienti-table.component.css']
+  selector: 'app-advisors-table',
+  templateUrl: './advisors-table.component.html',
+  styleUrls: ['./advisors-table.component.css']
 })
-export class KlientiTableComponent implements OnInit {
-  klients = [{id: 0, jmeno: '', prijmeni: '', email: '', tel_cislo: 0, rod_cislo: '', vek: 0}];
+export class AdvisorsTableComponent implements OnInit {
+  advisors = [{id: 0, first_name: '', last_name: '', email: '', phone: 0, PIN: '', age: 0}];
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.getAllClients();
+    this.getAllAdvisors();
   }
 
-  getAllClients = () => {
-    this.api.getAllClients().subscribe(
+  getAllAdvisors = () => {
+    this.api.getAllAdvisors().subscribe(
       { 
-        next: (data) => this.klients = data,
+        next: (data) => this.advisors = data,
         error: (error) => (error.error['code'] == "token_not_valid") ? localStorage.removeItem('token') : ''
       }
     )
   }
 
   exportCsv() {
-    this.downloadFile(this.klients);
+    this.downloadFile(this.advisors);
   }
 
   strRep(data: any) {
@@ -44,14 +44,14 @@ export class KlientiTableComponent implements OnInit {
     }
   }
 
-  ConvertToCSV(objArray: string | { id: number; jmeno: string; prijmeni: string; email: string; tel_cislo: number; rod_cislo: string; vek: number; }[], headerList: string[]) {
+  ConvertToCSV(objArray: string | { id: number; first_name: string; last_name: string; email: string; phone: number; PIN: string; age: number; }[], headerList: string[]) {
     console.log(objArray);
     console.log(headerList);
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
     let row = 'S.No,';
 
-    let newHeaders = ["id", "jmeno", "prijmeni", "email", "tel_cislo", "rod_cislo", "vek"];
+    let newHeaders = ["id", "first_name", "last_name", "email", "phone", "PIN", "age"];
 
     for (let index in newHeaders) {
       row += newHeaders[index] + ',';
@@ -70,8 +70,8 @@ export class KlientiTableComponent implements OnInit {
     return str;
   }
 
-  downloadFile(data: { id: number; jmeno: string; prijmeni: string; email: string; tel_cislo: number; rod_cislo: string; vek: number; }[], filename = 'data') {
-    let arrHeader = ["id", "jmeno", "prijmeni", "email", "tel_cislo", "rod_cislo", "vek"];
+  downloadFile(data: { id: number; first_name: string; last_name: string; email: string; phone: number; PIN: string; age: number; }[], filename = 'data') {
+    let arrHeader = ["id", "first_name", "last_name", "email", "phone", "PIN", "age"];
     let csvData = this.ConvertToCSV(data, arrHeader);
     console.log(csvData)
     let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
@@ -82,7 +82,7 @@ export class KlientiTableComponent implements OnInit {
       dwldLink.setAttribute("target", "_blank");
     }
     dwldLink.setAttribute("href", url);
-    dwldLink.setAttribute("download", "klienti.csv");
+    dwldLink.setAttribute("download", "advisors.csv");
     dwldLink.style.visibility = "hidden";
     document.body.appendChild(dwldLink);
     dwldLink.click();

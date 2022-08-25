@@ -1,0 +1,26 @@
+<button type="button" class="btn btn-primary btn-sm ms-1" (click)="exportCsv()">Download csv</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">PIN</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <th scope="row">{{ client.id }}</th>
+        <td> {{ client.first_name }}</td>
+        <td> {{ client.last_name }}</td>
+        <td> {{ client.email }}</td>
+        <td> {{ client.phone }}</td>
+        <td> {{ client.PIN }}</td>
+        <td> {{ client.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

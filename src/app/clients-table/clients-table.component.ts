@@ -2,30 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-smlouvy-table',
-  templateUrl: './smlouvy-table.component.html',
-  styleUrls: ['./smlouvy-table.component.css']
+  selector: 'app-clients-table',
+  templateUrl: './clients-table.component.html',
+  styleUrls: ['./clients-table.component.css']
 })
-export class SmlouvyTableComponent implements OnInit {
-  smlouvy = [{ev_cislo: '', instituce: '', klient: 0, spravce: 0, dat_uzavreni: '', dat_platnosti: '', dat_ukonceni: ''}];
+export class ClientsTableComponent implements OnInit {
+  clients = [{id: 0, first_name: '', last_name: '', email: '', phone: 0, PIN: '', age: 0}];
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.getAllSmlouvy();
+    this.getAllClients();
   }
 
-  getAllSmlouvy = () => {
-    this.api.getAllSmlouvy().subscribe(
+  getAllClients = () => {
+    this.api.getAllClients().subscribe(
       { 
-        next: (data) => this.smlouvy = data,
+        next: (data) => this.clients = data,
         error: (error) => (error.error['code'] == "token_not_valid") ? localStorage.removeItem('token') : ''
       }
     )
   }
 
   exportCsv() {
-    this.downloadFile(this.smlouvy);
+    this.downloadFile(this.clients);
   }
 
   strRep(data: any) {
@@ -44,14 +44,14 @@ export class SmlouvyTableComponent implements OnInit {
     }
   }
 
-  ConvertToCSV(objArray: string | { ev_cislo: string; instituce: string; klient: number; spravce: number; dat_uzavreni: string; dat_platnosti: string; dat_ukonceni: string; }[], headerList: string[]) {
+  ConvertToCSV(objArray: string | { id: number; first_name: string; last_name: string; email: string; phone: number; PIN: string; age: number; }[], headerList: string[]) {
     console.log(objArray);
     console.log(headerList);
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
     let row = 'S.No,';
 
-    let newHeaders = ["ev_cislo", "instituce", "klient", "spravce", "dat_uzavreni", "dat_platnosti", "dat_ukonceni"];
+    let newHeaders = ["id", "first_name", "last_name", "email", "phone", "PIN", "age"];
 
     for (let index in newHeaders) {
       row += newHeaders[index] + ',';
@@ -70,8 +70,8 @@ export class SmlouvyTableComponent implements OnInit {
     return str;
   }
 
-  downloadFile(data: { ev_cislo: string; instituce: string; klient: number; spravce: number; dat_uzavreni: string; dat_platnosti: string; dat_ukonceni: string; }[], filename = 'data') {
-    let arrHeader = ["ev_cislo", "instituce", "klient", "spravce", "dat_uzavreni", "dat_platnosti", "dat_ukonceni"];
+  downloadFile(data: { id: number; first_name: string; last_name: string; email: string; phone: number; PIN: string; age: number; }[], filename = 'data') {
+    let arrHeader = ["id", "first_name", "last_name", "email", "phone", "PIN", "age"];
     let csvData = this.ConvertToCSV(data, arrHeader);
     console.log(csvData)
     let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
@@ -82,7 +82,7 @@ export class SmlouvyTableComponent implements OnInit {
       dwldLink.setAttribute("target", "_blank");
     }
     dwldLink.setAttribute("href", url);
-    dwldLink.setAttribute("download", "smlouvy.csv");
+    dwldLink.setAttribute("download", "clients.csv");
     dwldLink.style.visibility = "hidden";
     document.body.appendChild(dwldLink);
     dwldLink.click();

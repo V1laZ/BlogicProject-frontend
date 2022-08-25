@@ -1,23 +1,22 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-klienti',
-  templateUrl: './klienti.component.html',
-  styleUrls: ['./klienti.component.css']
+  selector: 'app-clients',
+  templateUrl: './clients.component.html',
+  styleUrls: ['./clients.component.css']
 })
-export class KlientiComponent implements OnInit, OnDestroy {
+export class ClientsComponent implements OnInit, OnDestroy {
   id: number = 0;
-  client_data = {id: '', jmeno: '', prijmeni: '', email: '', tel_cislo: '', rod_cislo: '', vek: ''};
+  client_data = {id: '', first_name: '', last_name: '', email: '', phone: '', PIN: '', age: ''};
   private sub: any;
 
-  constructor(private route: ActivatedRoute, private api: ApiService) { 
-  }
+  constructor(private route: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
+      this.id = +params['id'];
     })
 
     this.getClient();
