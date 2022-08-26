@@ -77,4 +77,12 @@ export class ApiService {
     return this.http.post(this.baseurl + '/clients/', {first_name, last_name, email, phone, PIN, age}, {headers: httpHeaders})
   }
 
+  addContract(reg_num: string, institution: string, client: number, manager: number, date_close: Date, date_valid: Date, date_end: Date) {
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+    return this.http.post(this.baseurl + '/contracts/', {reg_num, institution, client, manager, date_close, date_valid, date_end}, {headers: httpHeaders})
+  }
+
 }

@@ -1,0 +1,39 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" style="width: 23rem;" class="ps-2">
+    <div class="form-group">
+        <label for="regNumInput">Reg. number</label>
+        <input class="form-control" placeholder="0123456789" type="text" id="regNumInput" name="reg_num" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="institutionInput">Institution</label>
+        <input class="form-control" placeholder="ASD" type="text" id="institutionInput" name="institution" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="clientInput">Client</label>
+        <select class="form-select" id="clientInput" name="client" ngModel required>
+            <option value="{{ clientID }}" *ngFor="let clientID of clientsIDs">{{ clientID }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="managerInput">Manager</label>
+        <select class="form-select" id="managerInput" name="manager" ngModel required>
+            <option value="{{ advisorID }}" *ngFor="let advisorID of advisorsIDs">{{ advisorID }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="closeInput">Close date</label>
+        <input class="form-control" placeholder="" type="date" id="closeInput" name="date_close" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="validInput">Valid date</label>
+        <input class="form-control" placeholder="" type="date" id="validInput" name="date_valid" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="endInput">End date</label>
+        <input class="form-control" placeholder="" type="date" id="endInput" name="date_end" ngModel required>
+    </div>
+
+    <div class="alert alert-danger mt-2" *ngIf="error">Enter valid information</div>
+    <button class="btn btn-primary ms-1 mt-3">Add</button>
+</form>
+<br>
+<a class="nav-link" routerLink="/clients-table" routerLinkActive="active" ariaCurrentWhenActive="page">Back</a>
