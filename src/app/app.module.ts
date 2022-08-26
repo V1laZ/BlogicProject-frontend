@@ -13,6 +13,7 @@ import { ClientsTableComponent } from './clients-table/clients-table.component';
 import { AdvisorsComponent } from './advisors/advisors.component';
 import { AdvisorsTableComponent } from './advisors-table/advisors-table.component';
 import { ContractsTableComponent } from './contracts-table/contracts-table.component';
+import { AddAdvisorComponent } from './add-advisor/add-advisor.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ContractsTableComponent } from './contracts-table/contracts-table.compo
     ClientsTableComponent,
     AdvisorsComponent,
     AdvisorsTableComponent,
-    ContractsTableComponent
+    ContractsTableComponent,
+    AddAdvisorComponent
   ],
   imports: [
     BrowserModule,

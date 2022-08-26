@@ -1,0 +1,30 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" style="width: 23rem;" class="ps-2">
+    <div class="form-group">
+        <label for="firstNameInput">First name</label>
+        <input class="form-control" placeholder="John" type="text" id="firstNameInput" name="first_name" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="lastNameInput">Last name</label>
+        <input class="form-control" placeholder="Smith" type="text" id="lastNameInput" name="last_name" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="emailInput">Email</label>
+        <input class="form-control" placeholder="john_smith@example.com" type="text" id="emailInput" name="email" ngModel required email>
+    </div>
+    <div class="form-group">
+        <label for="phoneInput">Phone</label>
+        <input class="form-control" placeholder="111222333" type="text" id="phoneInput" name="phone" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="pinInput">PIN</label>
+        <input class="form-control" placeholder="123456/1234" type="text" id="pinInput" name="pin" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="ageInput">Age</label>
+        <input class="form-control" placeholder="1" type="text" id="ageInput" name="age" ngModel required>
+    </div>
+    <div class="alert alert-danger mt-2" *ngIf="error">Enter valid information</div>
+    <button class="btn btn-primary ms-1 mt-3">Add</button>
+</form>
+<br>
+<a class="nav-link" routerLink="/advisors-table" routerLinkActive="active" ariaCurrentWhenActive="page">Back</a>
