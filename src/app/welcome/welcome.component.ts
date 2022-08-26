@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
@@ -7,9 +8,17 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  navigationSubscription;
   name = "";
 
-  constructor() {
+  constructor(private router: Router) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.initialiseInvites();
+      }
+    });
+ 
   }
   
   ngOnInit(): void {
@@ -22,6 +31,15 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
-  
+  initialiseInvites() {
+    this.name = "";
+  }
+
+  ngOnDestroy() {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
+  } 
+
 
 }
