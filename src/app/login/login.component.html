@@ -1,23 +1,23 @@
 <div class="container-fluid">
     <div class="row">
-    <div class="text-black">
-        <div class="d-flex align-items-center h-custom-2 px-5">
-        <form style="width: 23rem;" [formGroup]="form">
-            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
-            <div class="form-outline mb-4">
-            <input type="username" class="form-control form-control-lg" formControlName="username" placeholder="Username"/>
+        <div class="text-black">
+            <div class="d-flex align-items-center h-custom-2 px-5">
+                <form style="width: 23rem;" [formGroup]="form">
+                    <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+                    <div class="form-outline mb-4">
+                        <input type="username" class="form-control form-control-lg" formControlName="username" placeholder="Username"/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="password" class="form-control form-control-lg" formControlName="password" placeholder="Password"/>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!isUsername">Please enter username</div>
+                    <div class="alert alert-danger" *ngIf="!isPassword">Please enter password</div>
+                    <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
+                    <div class="pt-1 mb-4">
+                        <button class="btn btn-primary btn-lg btn-block" type="button" (click)="login()">Login</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-outline mb-4">
-            <input type="password" class="form-control form-control-lg" formControlName="password" placeholder="Password"/>
-            </div>
-            <div class="alert alert-danger" *ngIf="!isUsername">Please enter username</div>
-            <div class="alert alert-danger" *ngIf="!isPassword">Please enter password</div>
-            <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
-            <div class="pt-1 mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="button" (click)="login()">Login</button>
-            </div>
-        </form>
         </div>
-    </div>
     </div>
 </div>
