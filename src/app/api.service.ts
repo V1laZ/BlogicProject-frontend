@@ -69,4 +69,12 @@ export class ApiService {
     return this.http.post(this.baseurl + '/advisors/', {first_name, last_name, email, phone, PIN, age}, {headers: httpHeaders})
   }
 
+  addClient(first_name: string, last_name: string, email: string, phone: string, PIN: string, age: number) {
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+    return this.http.post(this.baseurl + '/clients/', {first_name, last_name, email, phone, PIN, age}, {headers: httpHeaders})
+  }
+
 }

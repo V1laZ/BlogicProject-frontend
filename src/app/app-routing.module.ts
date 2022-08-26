@@ -8,6 +8,7 @@ import { ContractsTableComponent } from './contracts-table/contracts-table.compo
 import { AdvisorsTableComponent } from './advisors-table/advisors-table.component';
 import { AdvisorsComponent } from './advisors/advisors.component';
 import { AddAdvisorComponent } from './add-advisor/add-advisor.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 const routes: Routes = [
   { path: 'clients-table', component: ClientsTableComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'clients/:id', component: ClientsComponent},
   { path: 'advisors/:id', component: AdvisorsComponent},
   { path: 'add-advisor', component: AddAdvisorComponent},
+  { path: 'add-client', component: AddClientComponent},
   { path: '', component: WelcomeComponent}
 ];
 
